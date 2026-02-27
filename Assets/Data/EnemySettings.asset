@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac73bbbc0170ff4d9d7e4548e99f4ae, type: 3}
+  m_Name: EnemySettings
+  m_EditorClassIdentifier: 
+  EnemyDeadAudio: {fileID: 8300000, guid: 16870e4db0c82d2488cc33ff3f8a180d, type: 3}
+  enemyType: 0
+  attackCooldown: 0
+  ESSpeed: 3
+  ESBaseSpeed: 0.6
+  ESCurrentSpeed: 0.6
+  ESBaseDamage: 2
+  ESCurrentDamage: 2
+  ESKnockback: 1
+  ESAttackRange: 1.7
+  ESEliteSpeed: 3
+  ESEliteBaseSpeed: 0.6
+  ESEliteCurrentSpeed: 0.6
+  ESEliteBaseDamage: 2
+  ESEliteCurrentDamage: 2
+  ESEliteKnockback: 1
+  ESEliteAttackRange: 2
+  EHSpeed: 0.7
+  EHBaseSpeed: 1
+  EHCurrentSpeed: 1
+  EHBaseDamage: 5
+  EHCurrentDamage: 5
+  EHKnockback: 0
+  EHAttackRange: 2
+  EHEliteSpeed: 0.5
+  EHEliteBaseSpeed: 1
+  EHEliteCurrentSpeed: 1
+  EHEliteBaseDamage: 10
+  EHEliteCurrentDamage: 10
+  EHEliteKnockback: 0
+  EHEliteAttackRange: 2.2

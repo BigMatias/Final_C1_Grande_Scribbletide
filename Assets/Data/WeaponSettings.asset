@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b309a9995b93447a539365b4c5bc01, type: 3}
+  m_Name: WeaponSettings
+  m_EditorClassIdentifier: 
+  weaponPrefabs:
+  - {fileID: 8791903182136104425, guid: 0db91c1ad45e9024ba203dda3f776f8d, type: 3}
+  - {fileID: 4910213909599100700, guid: 8fc0bf277ccdaec4ab08e8e100d89766, type: 3}
+  - {fileID: 1826860638414157363, guid: 01625eda5c6a838428b5c6b843f1b61a, type: 3}
+  weaponType: 0
+  weaponId: Hammer
+  WeaponSwingSound: {fileID: 8300000, guid: fc36688f5832cdd4cb5c43fc8ba25dc7, type: 3}
+  WeaponHitSound: {fileID: 8300000, guid: a303703b832f3504fbb646131192d6f1, type: 3}
+  WeaponBlockSound: {fileID: 8300000, guid: 2f443fe0eeccb7747987814b186a97ba, type: 3}
+  BaseAttackSpeed: 1
+  WeaponCurrentDamage: 60
+  WeaponCurrentSpeed: 1.1
+  WeaponStaggerTime: 1
+  WeapopnKnockbackTimer: 0
+  WeapopnKnockbackForce: 4
+  StaminaDepletedSpeedReduced: 50
+  ComboIndex: 0
+  LongswordBaseSpeed: 1.3
+  LongswordBaseDamage: 20
+  LongswordStaggerTime: 1
+  LongswordKnockback: 2
+  LongswordSwingSound: {fileID: 8300000, guid: 4b9c171ed75037643836740374fd9ee0, type: 3}
+  LongswordHitSound: {fileID: 8300000, guid: c27f430c52b64094abf9b39b4221adcd, type: 3}
+  HammerBaseSpeed: 0.7
+  HammerBaseDamage: 30
+  HammerStaggerTime: 1
+  HammerKnockback: 4
+  HammerSwingSound: {fileID: 8300000, guid: fc36688f5832cdd4cb5c43fc8ba25dc7, type: 3}
+  HammerHitSound: {fileID: 8300000, guid: 4353851602f63e84bb4827ff37f127f2, type: 3}
+  maxCombo: 3
+  timeForComboReset: 0.5
+  parryWindow: 0.3
+  bufferTime: 0.6

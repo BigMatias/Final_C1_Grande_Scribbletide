@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9abba369e9dce46bd1fdc108b233d9, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  PlayerLeveledUpAudio: {fileID: 8300000, guid: 783c90d6c3b24b1478610991a67da2ea, type: 3}
+  BaseExpMagnetRadius: 0.5
+  CurrentExpMagnetRadius: 0.5
+  CurrentExperience: 0
+  CurrentLevel: 0
+  ExpLvl0Requirement: 10
+  ExpNeededForNextLvl: 10
+  ExpRequiredIncrease_Lvl0To10: 10
+  ExpRequiredIncrease_Lvl10To25: 15
+  ExpRequiredIncrease_Lvl25To39: 25
+  ExpRequiredIncrease_Lvl40: 35
