@@ -15,3 +15,5 @@ MonoBehaviour:
   MushroomBonusAttackSpeed: 0.1
   MeatBonusDamage: 5
   CrownBonusRadius: 0.5
+  RedPotionMaxHPIncrease: 10
+  GasolineMSIncrease: 0.5

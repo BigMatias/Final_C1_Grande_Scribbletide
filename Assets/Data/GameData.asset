@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62de845af97aac45a8dd133c1fef147, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  GameTimer: 0.10082778
+  GameTimer: 169.62743
   BlueExperienceValue: 2
   YellowExperienceValue: 7
   RedExperienceValue: 15
+  HealItemAmount: 5

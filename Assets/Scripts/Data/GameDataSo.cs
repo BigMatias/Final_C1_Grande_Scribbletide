@@ -5,7 +5,8 @@ public class GameDataSo : ScriptableObject
 {
     [Header("Game Data")]
     public float GameTimer;
-    public float BlueExperienceValue;
-    public float YellowExperienceValue;
-    public float RedExperienceValue;
+    public int BlueExperienceValue;
+    public int YellowExperienceValue;
+    public int RedExperienceValue;
+    public int HealItemAmount;
 }

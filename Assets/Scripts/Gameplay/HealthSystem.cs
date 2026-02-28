@@ -61,4 +61,10 @@ public class HealthSystem : MonoBehaviour
 
         onLifeUpdated?.Invoke(life, maxLife);
     }
+
+    public void IncreaseMaxHP(float value)
+    {
+        maxLife += value;
+        onLifeUpdated?.Invoke(life, maxLife);
+    }
 }

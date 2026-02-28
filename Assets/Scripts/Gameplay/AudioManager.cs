@@ -5,6 +5,8 @@ public class AudioManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private WeaponDataSo weaponDataSo;
     [SerializeField] private EnemyDataSo enemyDataSo;
+    [SerializeField] private PlayerDataSo playerDataSo;
+
     [Header("AudioClips")]
     [SerializeField] private AudioClip[] music;
     [SerializeField] private AudioClip buttonClickedAudio;
@@ -22,6 +24,7 @@ public class AudioManager : MonoBehaviour
         PlayerWeaponCollider.onAttackBlocked += PlayerWeaponCollider_onAttackBlocked;
         EnemyController.onEnemyDie += EnemyController_onEnemyDie;
         PlayerWeaponCollider.onEnemyHit += PlayerWeaponCollider_onEnemyHit;
+        EnemyWeaponController.onPlayerHit += EnemyWeaponController_onPlayerHit;
     }
 
     private void Start()
@@ -43,11 +46,16 @@ public class AudioManager : MonoBehaviour
         PlayerWeaponCollider.onAttackBlocked -= PlayerWeaponCollider_onAttackBlocked;
         EnemyController.onEnemyDie -= EnemyController_onEnemyDie;
         PlayerWeaponCollider.onEnemyHit -= PlayerWeaponCollider_onEnemyHit;
+        EnemyWeaponController.onPlayerHit -= EnemyWeaponController_onPlayerHit;
     }
+    private void EnemyWeaponController_onPlayerHit()
+    {
+        audioSourceSfx.PlayOneShot(playerDataSo.PlayerHitSound);
+    }
+
     private void PlayerWeaponCollider_onEnemyHit()
     {
         audioSourceSfx.PlayOneShot(weaponDataSo.WeaponHitSound);
-
     }
 
     private void EnemyController_onEnemyDie()

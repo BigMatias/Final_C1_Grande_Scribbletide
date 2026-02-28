@@ -4,10 +4,7 @@ using UnityEngine;
 public class PlayerDataSo : ScriptableObject
 {
     [Header("Attack Sounds")]
-    public AudioClip swooshAttackSound;
-    public AudioClip slashAttackConnected;
-    public AudioClip heavySwingAttackSound;
-    public AudioClip hammerAttackConnected;
+    public AudioClip PlayerHitSound;
 
     [Header("Controls")]
     public KeyCode Left = KeyCode.A;
@@ -21,6 +18,7 @@ public class PlayerDataSo : ScriptableObject
     [Header("Configs")]
     [Header("Movement")]
     public float CurrentSpeed;
+    public float SpeedSave;
     public float BaseSpeed;
     public float ReducedSpeedWhileBlocking;
     public float InvulnerabilityAfterHit;

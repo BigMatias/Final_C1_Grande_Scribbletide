@@ -7,12 +7,14 @@ public class UIOnScreen : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image[] staminasEmpty;
     [SerializeField] private Image[] staminasFull;
-    [SerializeField] private TextMeshProUGUI uiGameTimer;
-    [SerializeField] private float hideStaminaTime;
-    [SerializeField] private HealthSystem playerHealthSystem;
     [SerializeField] private WeaponController playerWeaponController;
     [SerializeField] private PlayerDataSo playerDataSo;
+    [SerializeField] private PlayerStatsSo playerStatsSo;
     [SerializeField] private GameDataSo gameDataSO;
+    [SerializeField] private TextMeshProUGUI uiGameTimer;
+    [SerializeField] private TextMeshProUGUI uiPlayerLevel;
+    [SerializeField] private float hideStaminaTime;
+    [SerializeField] private HealthSystem playerHealthSystem;
 
     private float timerForHidingStamina;
 
@@ -21,10 +23,13 @@ public class UIOnScreen : MonoBehaviour
         playerWeaponController.onPlayerIsBlocking += PlayerWeaponController_onPlayerIsBlocking; 
         playerWeaponController.onPlayerIsNotBlocking += PlayerWeaponController_onPlayerIsNotBlocking;
         StaminaSystem.onStaminaChanged += StaminaSystem_onStaminaChanged;
+        PlayerStats.onLevelUp += PlayerStats_onLevelUp;
     }
+
 
     void Start()
     {
+        uiPlayerLevel.text = "Lvl " + playerStatsSo.CurrentLevel.ToString();
         for (int i = 0; i <= staminasEmpty.Length - 1; i++)
         {
             staminasEmpty[i].gameObject.SetActive(false);
@@ -57,6 +62,12 @@ public class UIOnScreen : MonoBehaviour
         playerWeaponController.onPlayerIsBlocking -= PlayerWeaponController_onPlayerIsBlocking;
         playerWeaponController.onPlayerIsNotBlocking -= PlayerWeaponController_onPlayerIsNotBlocking;
         StaminaSystem.onStaminaChanged -= StaminaSystem_onStaminaChanged;
+        PlayerStats.onLevelUp -= PlayerStats_onLevelUp;
+    }
+
+    private void PlayerStats_onLevelUp()
+    {
+        uiPlayerLevel.text = "Lvl " + playerStatsSo.CurrentLevel.ToString();
     }
 
     private void StaminaSystem_onStaminaChanged()

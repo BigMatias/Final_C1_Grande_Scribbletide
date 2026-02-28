@@ -14,6 +14,8 @@ public class UIPerk : MonoBehaviour
     [SerializeField] private Sprite mushroomSprite;
     [SerializeField] private Sprite meatSprite;
     [SerializeField] private Sprite crownSprite;
+    [SerializeField] private Sprite redPotionSprite;
+    [SerializeField] private Sprite gasolineSprite;
 
     private void Awake()
     {
@@ -44,6 +46,18 @@ public class UIPerk : MonoBehaviour
                 titleText.text = "Crown";
                 descriptionText.text = "+1 XP Attraction Range";
                 iconImage.sprite = crownSprite;
+                break;
+
+            case PerkType.RedPotion:
+                titleText.text = "Red Potion";
+                descriptionText.text = "+10 Max HP";
+                iconImage.sprite = redPotionSprite;
+                break;
+
+            case PerkType.Gasoline:
+                titleText.text = "Gasoline";
+                descriptionText.text = "+1 Player Speed";
+                iconImage.sprite = gasolineSprite;
                 break;
         }
     }

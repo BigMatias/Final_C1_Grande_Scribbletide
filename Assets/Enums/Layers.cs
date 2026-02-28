@@ -6,5 +6,5 @@ public enum Layers
     Player = 8,
     Enemy = 9,
     Obstacles = 10,
-    Experience = 11
+    Pickable = 11
 }

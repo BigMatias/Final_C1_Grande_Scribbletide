@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class EnemyWeaponController : MonoBehaviour
 
     private Animator weaponAnimator;
     private WeaponsEvents weaponEvents;
+
+    public static event Action onPlayerHit;
 
     private HashSet<HealthSystem> playerHitThisAttack = new HashSet<HealthSystem>();
 
@@ -199,6 +202,8 @@ public class EnemyWeaponController : MonoBehaviour
                 return;
 
             playerHitThisAttack.Add(healthSystem);
+            onPlayerHit?.Invoke();
+
             switch (enemyType)
             {
                 case EnemyType.EnemySword:

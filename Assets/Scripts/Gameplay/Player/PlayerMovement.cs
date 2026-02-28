@@ -22,7 +22,6 @@ public partial class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private CircleCollider2D playerCollider;
     private HealthSystem healthSystem;
-    private AudioSource audioSource;
 
     private WeaponController weaponController;
 
@@ -42,6 +41,7 @@ public partial class PlayerMovement : MonoBehaviour
     private void Start()
     {
         playerDataSO.CurrentSpeed = playerDataSO.BaseSpeed;
+        playerDataSO.SpeedSave = playerDataSO.CurrentSpeed;
     }
 
 
@@ -65,8 +65,6 @@ public partial class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        //EnemyController.onPlayerHit -= EnemyController_onPlayerHit;
-        //PlayerInteractionPowerUps.onPowerUpPickedUp -= PlayerInteractionPowerUps_onPowerUpPickedUp;
         healthSystem.onDie -= HealthSystem_onDie;
     }
 
@@ -82,27 +80,6 @@ public partial class PlayerMovement : MonoBehaviour
     private void HealthSystem_onDie()
     {
         onPlayerDied?.Invoke();
-    }
-
-    private void EnemyController_onPlayerHit(Transform enemyTransform)
-    {
-       // StartCoroutine(WasHit(enemyTransform));
-    }
-
-    private void PlayerInteractionPowerUps_onPowerUpPickedUp(int id, float cooldownTime)
-    {
-        /*switch (id)
-        {
-            case (int)PlayerActionType.Damage:
-                powerUpPickedUp = StartCoroutine(PowerUpPickedUp((int)PlayerActionType.Damage, cooldownTime));
-                break;
-            case (int)PlayerActionType.TripleJump:
-                powerUpPickedUp = StartCoroutine(PowerUpPickedUp((int)PlayerActionType.TripleJump, cooldownTime));
-                break;
-            case (int)PlayerActionType.Invulnerability:
-                powerUpPickedUp = StartCoroutine(PowerUpPickedUp((int)PlayerActionType.Invulnerability, cooldownTime));
-                break;
-        }*/
     }
 
     private void MovePlayer()
@@ -197,41 +174,24 @@ public partial class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if (collision.gameObject.layer == (int)Layers.Experience)
+       if (collision.gameObject.layer == (int)Layers.Pickable)
        {
             if (playerCollider.IsTouching(collision))
             {
-                ExperienceGem gem = collision.gameObject.GetComponent<ExperienceGem>();
-                playerStatsSO.CurrentExperience += gem.GetValue();
-                gem.GemPickedUp();
-                onExpObtained?.Invoke();
+                Pickable pickable = collision.gameObject.GetComponent<Pickable>();
+                if (pickable.Type == PickableType.HealItem)
+                {
+                    int healAmount = pickable.GetValue();
+                    healthSystem.Heal(healAmount);
+                    pickable.PickableCollected();
+                }
+                else
+                {
+                    playerStatsSO.CurrentExperience += pickable.GetValue();
+                    pickable.PickableCollected();
+                    onExpObtained?.Invoke();
+                }
             }
        }
     }
-
-
-    /* private IEnumerator WasHit(Transform enemyTransform)
-     {
-         audioSource.PlayOneShot(playerHitAudio);
-
-         wasHit = true;
-         isInvulnerable = true;
-         float direction = (transform.position.x - enemyTransform.position.x) >= 0 ? 1f : -1f;
-         rb.velocity = Vector2.zero;
-         float knockbackForceX = 8f;
-         float knockbackForceY = 7f;
-         Vector2 knockbackDir = new Vector2(direction * knockbackForceX, knockbackForceY);
-
-         rb.AddForce(knockbackDir, ForceMode2D.Impulse);
-         playerState = PlayerState.Hit;
-         weaponAnimator.SetInteger(State, (int)playerState);
-         //gameObject.layer = (int)Layers.PlayerInvulnerable;
-         yield return new WaitForSeconds(0.3f);
-         wasHit = false;
-         yield return new WaitForSeconds(playerDataSO.InvulnerabilityAfterHit);
-         isInvulnerable = false;
-         gameObject.layer = (int)Layers.Player;
-
-    }
-    */
 }

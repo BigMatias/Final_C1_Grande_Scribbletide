@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemState: 0
-  gemAttractSpeed: 5
-  type: 0
+  attractSpeed: 0
+  Type: 0
 --- !u!212 &994254445185743005
 SpriteRenderer:
   m_ObjectHideFlags: 0

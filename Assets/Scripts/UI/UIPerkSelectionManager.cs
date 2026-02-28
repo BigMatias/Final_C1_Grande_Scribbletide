@@ -14,7 +14,9 @@ public class UIPerkSelectionManager : MonoBehaviour
     {
         PerkType.Mushroom,
         PerkType.Meat,
-        PerkType.Crown
+        PerkType.Crown,
+        PerkType.RedPotion,
+        PerkType.Gasoline
     };
 
     private void Awake()

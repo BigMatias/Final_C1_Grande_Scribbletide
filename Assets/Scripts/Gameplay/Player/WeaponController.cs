@@ -31,6 +31,7 @@ public class WeaponController : MonoBehaviour
     private bool attackBuffered = false;
     private float bufferCounter = 0f;
     private bool canParry = false;
+    private float speedSave = 0f;
 
     private string weaponId;
     private float attackSpeedModifier = 1f;
@@ -222,8 +223,7 @@ public class WeaponController : MonoBehaviour
                 isAttacking = false;
                 canParry = true;
                 parryTimer = weaponDataSo.parryWindow;
-
-                float reducedSpeed = playerDataSo.BaseSpeed * (1 - playerDataSo.ReducedSpeedWhileBlocking / 100);
+                float reducedSpeed = playerDataSo.CurrentSpeed * (1 - playerDataSo.ReducedSpeedWhileBlocking / 100);
                 playerDataSo.CurrentSpeed = reducedSpeed;
                 weaponDataSo.ComboIndex = 0;
                 weaponState = WeaponState.Block;
@@ -237,7 +237,7 @@ public class WeaponController : MonoBehaviour
     {
         onPlayerIsNotBlocking?.Invoke();
         isPlayerBlocking = false;
-        playerDataSo.CurrentSpeed = playerDataSo.BaseSpeed;
+        playerDataSo.CurrentSpeed = playerDataSo.SpeedSave;
         weaponState = WeaponState.BlockRelease;
         weaponAnimator.SetInteger(State, (int)weaponState);
     }

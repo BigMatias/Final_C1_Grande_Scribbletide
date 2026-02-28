@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private WeaponDataSo weaponDataSO;
     [SerializeField] private ParticleSystem enemyDeathParticles;
     [SerializeField] private EnemyWeaponController enemyWeaponController;
-    [SerializeField] private ExperienceType baseExperienceType;
+    [SerializeField] private PickableType baseExperienceType;
     [SerializeField] public EnemyType enemyType;
 
     [Header("Configs")]
@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
     private float avoidTimer;
 
     public event Action onEnemyHit;
-    public static event Action onPlayerHit;
     public static event Action onEnemyDie;
 
     private Rigidbody2D rb;
@@ -83,7 +82,7 @@ public class EnemyController : MonoBehaviour
 
     private void HealthSystem_onDie()
     {
-        SpawnExperience();
+        SpawnPickable();
         Instantiate(enemyDeathParticles, transform.position, Quaternion.identity);
         if (HordeSpawner.Instance != null)
         {
@@ -283,22 +282,33 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void SpawnExperience()
+    private void SpawnPickable()
     {
-        ExperienceType type = GetExperienceType();
+        PickableType pickableType;
+        float rand = 0;
+        rand = UnityEngine.Random.Range(0f, 2);
+        if (rand <= 0.05f)
+        {
+            pickableType = PickableType.HealItem;
+        }
+        else
+        {
+            pickableType = GetExperienceType();
+        }
 
-        ExperiencePool.Instance.GetExperience(type, transform.position);
+        PickablePool.Instance.GetPickable(pickableType, transform.position);
     }
 
-    private ExperienceType GetExperienceType()
+
+    private PickableType GetExperienceType()
     {
         if (enemyType == EnemyType.EnemyHammer || enemyType == EnemyType.EnemySword)
-            return ExperienceType.Blue;
+            return PickableType.ExperienceBlue;
 
         if (enemyType == EnemyType.EnemyHammerElite || enemyType == EnemyType.EnemySwordElite)
-            return ExperienceType.Yellow;
+            return PickableType.ExperienceYellow;
         
-        return ExperienceType.Red;
+        return PickableType.ExperienceRed;
     }
 
     private void SeparateFromOtherEnemies()

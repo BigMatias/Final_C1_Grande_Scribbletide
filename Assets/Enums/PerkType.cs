@@ -2,5 +2,7 @@ public enum PerkType
 {
     Mushroom,
     Meat,
-    Crown
+    Crown,
+    RedPotion,
+    Gasoline
 }

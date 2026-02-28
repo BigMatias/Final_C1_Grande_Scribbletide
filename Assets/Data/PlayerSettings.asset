@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf222ca1bfc59184cbc5bfad2b2f5512, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  swooshAttackSound: {fileID: 0}
-  slashAttackConnected: {fileID: 0}
-  heavySwingAttackSound: {fileID: 0}
-  hammerAttackConnected: {fileID: 0}
+  PlayerHitSound: {fileID: 8300000, guid: 96ecc0cca7a4fca4297c913b3b78cd67, type: 3}
   Left: 97
   Right: 100
   Down: 115
@@ -23,9 +20,6 @@ MonoBehaviour:
   NormalAttack: 323
   Block: 324
   Dash: 32
-  CurrentExperience: 6
-  CurrentLevel: 0
-  ExpNeededForNextLvl: 10
   CurrentSpeed: 3
   BaseSpeed: 3
   ReducedSpeedWhileBlocking: 50

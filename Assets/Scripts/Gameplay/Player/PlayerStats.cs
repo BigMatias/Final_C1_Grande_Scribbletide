@@ -4,12 +4,14 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private PlayerStatsSo playerStatsSO;
+    [SerializeField] private PlayerDataSo playerDataSO;
     [SerializeField] private WeaponDataSo weaponDataSO;
     [SerializeField] private PerksDataSo perksDataSO;
     [SerializeField] private AudioManager audioManager;
 
     public static PlayerStats Instance;
     private PlayerMovement playerMovement;
+    private HealthSystem healthSystem;
 
     public static event Action onLevelUp;
     public static event Action onMagnetUpgraded;
@@ -18,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        healthSystem = GetComponent<HealthSystem>();
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.onExpObtained += PlayerMovement_onExpObtained;
     }
@@ -35,9 +38,9 @@ public class PlayerStats : MonoBehaviour
         if (playerStatsSO.CurrentExperience >= playerStatsSO.ExpNeededForNextLvl)
         {
             audioManager.ReproduceClip(playerStatsSO.PlayerLeveledUpAudio);
-            onLevelUp?.Invoke();
             playerStatsSO.CurrentExperience = 0;
             playerStatsSO.CurrentLevel += 1;
+            onLevelUp?.Invoke();
 
             if (playerStatsSO.CurrentLevel <= 10)
             {
@@ -73,6 +76,15 @@ public class PlayerStats : MonoBehaviour
             case PerkType.Crown:
                 playerStatsSO.CurrentExpMagnetRadius += perksDataSO.CrownBonusRadius;
                 onMagnetUpgraded?.Invoke();
+                break;
+
+            case PerkType.RedPotion:
+                healthSystem.IncreaseMaxHP(perksDataSO.RedPotionMaxHPIncrease);
+                break;
+
+            case PerkType.Gasoline:
+                playerDataSO.CurrentSpeed += perksDataSO.GasolineMSIncrease;
+                playerDataSO.SpeedSave += perksDataSO.GasolineMSIncrease;
                 break;
         }
     }

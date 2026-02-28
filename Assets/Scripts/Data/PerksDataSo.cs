@@ -7,4 +7,6 @@ public class PerksDataSo : ScriptableObject
     public float MushroomBonusAttackSpeed;
     public float MeatBonusDamage;
     public float CrownBonusRadius;
+    public float RedPotionMaxHPIncrease;
+    public float GasolineMSIncrease;
 }

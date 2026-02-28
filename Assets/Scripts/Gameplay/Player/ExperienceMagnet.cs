@@ -30,9 +30,9 @@ public class ExperienceMagnet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == (int)Layers.Experience)
+        if (collision.gameObject.layer == (int)Layers.Pickable)
         {
-            ExperienceGem gem = collision.GetComponent<ExperienceGem>();
+            Pickable gem = collision.GetComponent<Pickable>();
 
             if (gem != null)
             {
