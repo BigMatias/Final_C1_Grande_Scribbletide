@@ -16,9 +16,9 @@ Survive as long as you can!
 Matías Grande
 
 ### Credits
-**Fantasy Wooden GUI Free**
-**Violet Theme UI**
-**Pixel Art Gem Pack**
-**Scribble Dungeons (Kenney)**
-**2D ITEMS SET - HANDPAINTED**
-**FREE Energy Hard Rock Music Pack**
+* **Fantasy Wooden GUI Free**
+* **Violet Theme UI**
+* **Pixel Art Gem Pack**
+* **Scribble Dungeons (Kenney)**
+* **2D ITEMS SET - HANDPAINTED**
+* **FREE Energy Hard Rock Music Pack**
