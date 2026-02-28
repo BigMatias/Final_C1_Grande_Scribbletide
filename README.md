@@ -1,17 +1,22 @@
 # Final_C1_Grande_Scribbletide
-Itch.io
+
+### Itch.io
 https://bigmatthew.itch.io/adventurenaut
 
-Game details
+### Game details
 Survive as long as you can! 
 
-How to play
-WASD: Move
-Left Click: Attack
-Right Click: Block
-Space: Dash
-By
+### How to play
+* WASD: Move
+* Left Click: Attack
+* Right Click: Block
+* Space: Dash
+  
+### By
 Matías Grande
 
-Credits
-Kenney New Platformer Pack Violet Theme UI Free Game Items
+### Credits
+**Fantasy Wooden GUI Free**
+**Violet Theme UI**
+**Pixel Art Gem Pack**
+**Scribble Dungeons (Kenney)**
