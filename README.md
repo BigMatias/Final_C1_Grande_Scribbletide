@@ -1,7 +1,7 @@
 # Final_C1_Grande_Scribbletide
 
 ### Itch.io
-https://bigmatthew.itch.io/adventurenaut
+https://bigmatthew.itch.io/scribbletide
 
 ### Game details
 Survive as long as you can! 
